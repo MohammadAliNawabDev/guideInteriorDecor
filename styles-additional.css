@@ -1,0 +1,427 @@
+/* ===================================
+   GUIDE INTERIOR & DECOR - ADDITIONAL STYLES
+   Optional enhancements and utilities
+   =================================== */
+
+/* Scroll-to-Top Button */
+.scroll-to-top {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--secondary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    z-index: 998;
+}
+
+.scroll-to-top:hover {
+    background-color: #c29560;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Loading Animations */
+.image-loading {
+    animation: imageLoad 0.6s ease-in-out;
+}
+
+@keyframes imageLoad {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Skeleton Loader for Images */
+.skeleton {
+    background: linear-gradient(90deg, var(--light-bg) 25%, var(--text-muted) 50%, var(--light-bg) 75%);
+    background-size: 200% 100%;
+    animation: skeletonLoading 2s infinite;
+}
+
+@keyframes skeletonLoading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .navbar-custom,
+    .floating-contact,
+    .btn-filter,
+    .scroll-to-top {
+        display: none !important;
+    }
+
+    body {
+        background-color: var(--white);
+    }
+
+    section {
+        page-break-inside: avoid;
+    }
+}
+
+/* Accessibility - Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* Dark Mode Support (Optional) */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #1a1a1a;
+        color: #f0f0f0;
+    }
+
+    .btn-filter {
+        background-color: #2a2a2a;
+        color: #f0f0f0;
+    }
+
+    .why-card {
+        background-color: #2a2a2a;
+    }
+
+    .portfolio-card {
+        background-color: #2a2a2a;
+    }
+}
+
+/* Form Validation Styles (for future contact form) */
+.form-control.is-invalid {
+    border-color: #dc3545;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='12 12 24 24'%3e%3cpath fill='none' stroke='%23dc3545' d='M15.5 1h-8C6.1 1 5 2.1 5 3.5v17C5 21.9 6.1 23 7.5 23h17c1.4 0 2.5-1.1 2.5-2.5v-8'/%3e%3ccircle cx='19' cy='2.5' r='2' fill='%23dc3545'/%3e%3cpath fill='none' stroke='%23dc3545' d='M23 2.5h4M21 4.5v4'/%3e%3c/svg%3e");
+}
+
+.form-control.is-valid {
+    border-color: #198754;
+}
+
+.invalid-feedback {
+    color: #dc3545;
+    font-size: 0.875rem;
+    display: block;
+    margin-top: 0.25rem;
+}
+
+.valid-feedback {
+    color: #198754;
+    font-size: 0.875rem;
+    display: block;
+    margin-top: 0.25rem;
+}
+
+/* Toast Notifications */
+.toast-notification {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 15px 20px;
+    border-radius: 4px;
+    box-shadow: var(--shadow);
+    z-index: 1000;
+    animation: slideIn 0.3s ease;
+}
+
+.toast-notification.success {
+    background-color: #28a745;
+}
+
+.toast-notification.error {
+    background-color: #dc3545;
+}
+
+.toast-notification.warning {
+    background-color: #ffc107;
+    color: var(--text-dark);
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Fade Out Animation */
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(400px);
+    }
+}
+
+/* Badge Styling */
+.badge-new {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: var(--secondary-color);
+    color: var(--white);
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+/* Divider Styling */
+.divider {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--secondary-color), transparent);
+    margin: 30px 0;
+}
+
+/* Text Utilities */
+.text-uppercase {
+    letter-spacing: 1px;
+}
+
+.text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Link Hover Effects */
+a.hover-underline {
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+}
+
+a.hover-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--secondary-color);
+    transition: width 0.3s ease;
+}
+
+a.hover-underline:hover::after {
+    width: 100%;
+}
+
+/* Grid Column Spanning */
+.col-span-2 {
+    grid-column: span 2;
+}
+
+.col-span-3 {
+    grid-column: span 3;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--light-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--secondary-color);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #c29560;
+}
+
+/* Selection Color */
+::selection {
+    background-color: var(--secondary-color);
+    color: var(--white);
+}
+
+::-moz-selection {
+    background-color: var(--secondary-color);
+    color: var(--white);
+}
+
+/* Utility Classes */
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.object-fit-cover {
+    object-fit: cover;
+}
+
+.opacity-75 {
+    opacity: 0.75;
+}
+
+.opacity-50 {
+    opacity: 0.5;
+}
+
+.rounded-circle {
+    border-radius: 50%;
+}
+
+.no-select {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
+
+/* Blur Background Utility */
+.blur-background {
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+/* Smooth Fade Transitions */
+.fade-in {
+    animation: fadeInAnimation 0.6s ease-in-out;
+}
+
+@keyframes fadeInAnimation {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-out {
+    animation: fadeOutAnimation 0.6s ease-in-out;
+}
+
+@keyframes fadeOutAnimation {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+/* Slide In Animations */
+.slide-in-left {
+    animation: slideInLeft 0.6s ease-out;
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.slide-in-right {
+    animation: slideInRight 0.6s ease-out;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Pulse Animation */
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Bounce Animation */
+.bounce {
+    animation: bounce 0.6s ease-in-out;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Box Shadow Hover Effect */
+.shadow-hover {
+    transition: var(--transition);
+}
+
+.shadow-hover:hover {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive Text Sizing */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .lead {
+        font-size: 1.1rem;
+    }
+}
+
+/* Print Optimization */
+@media print {
+    @page {
+        margin: 1cm;
+    }
+
+    body {
+        color: black;
+        background: white;
+    }
+
+    section {
+        page-break-inside: avoid;
+    }
+}
